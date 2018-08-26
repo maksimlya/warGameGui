@@ -11,7 +11,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 
-
+//const address = "http://localhost:4567";
+const address = "http://milky.ddns.net:4567";
 
 const styles = theme => ({
     textField: {
@@ -24,12 +25,8 @@ const styles = theme => ({
     button: {
         width: 150,
     },
-    root: {
-        width: '100%',
-    },
-    heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
+       heading: {
+        fontWeight: theme.typography.fontWeighBold,
     },
 });
 
@@ -54,7 +51,9 @@ const destructorOptions = [
     },
 ];
 
+
 class App extends Component {
+
     state = {
         launcherId: 'L101',
         destructorId: 'LD201',
@@ -79,12 +78,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to Afeka-War-Game Console</h1>
         </header>
                     <ExpansionPanel>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+              <ExpansionPanelSummary  expandIcon={<ExpandMoreIcon />}>
                   <Typography className={classes.heading}>Add Missile Launcher</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                   <Typography>
-                      <form className={classes.container} method="post" action="http://localhost:4567/addMissileLauncher" target="hiddenFrame" noValidate autoComplete="off">
+                      <form className={classes.container} method="post" action={address + "/addMissileLauncher"} target="hiddenFrame" noValidate autoComplete="off">
                           <TextField
                               name="id"
                               id="name"
@@ -134,7 +133,7 @@ class App extends Component {
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                   <Typography>
-                      <form className={classes.container} method="post" action="http://localhost:4567/addLauncherDestructor" target="hiddenFrame" noValidate autoComplete="off">
+                      <form className={classes.container} method="post" action={address + "/addLauncherDestructor"} target="hiddenFrame" noValidate autoComplete="off">
                           <TextField
                               name="id"
                               id="name"
@@ -180,7 +179,7 @@ class App extends Component {
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                   <Typography>
-                      <form className={classes.container} method="post" action="http://localhost:4567/addMissileDestructor" target="hiddenFrame" noValidate autoComplete="off">
+                      <form className={classes.container} method="post" action={address +  "/addMissileDestructor"} target="hiddenFrame" noValidate autoComplete="off">
                           <TextField
                               name="id"
                               id="name"
