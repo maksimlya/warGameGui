@@ -44,7 +44,8 @@ const destructorOptions = [
 class App extends Component {
     state = {
         launcherId: 'L101',
-        destructorId: 'D201',
+        destructorId: 'LD201',
+        missileDestructorId: 'D201',
         isHidden: 'True',
         type: 'Ship'
     };
@@ -143,6 +144,24 @@ class App extends Component {
                       Add Launcher Destructor
                   </Button>
               </form>
+          <form className={classes.container} method="post" action="http://localhost:4567/addMissileDestructor" target="hiddenFrame" noValidate autoComplete="off">
+              <TextField
+                  name="id"
+                  id="name"
+                  label="Missile Destructor ID"
+                  className={classes.textField}
+                  value={this.state.missileDestructorId}
+                  onChange={this.handleChange('missileDestructorId')}
+                  margin="normal"
+              />
+              <Button
+                  variant="contained"
+                  type="submit"
+                  color="primary"
+                  className={classes.button}>
+                  Add Missile Destructor
+              </Button>
+          </form>
           <iframe name="hiddenFrame" className="hide">a</iframe>
       </div>
 
